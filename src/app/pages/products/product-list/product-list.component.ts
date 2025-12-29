@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { IProduct } from '../../../models/interfaces/product.interface';
 
 @Component({
   selector: 'pm-product-list',
@@ -14,7 +15,7 @@ export class ProductListComponent {
   listfilter: string = 'cart';
   showImage: boolean = false;
 
-  products: any[] = [
+  products: IProduct[] = [
     {
       productId: 2,
       productName: 'Garden Cart',
