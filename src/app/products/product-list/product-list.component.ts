@@ -9,7 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
-  pageTitle: string = 'Product List';
+  pageTitle: string = 'Product List';  
+  showImage: boolean = false;
   products: any[] = [
     {
       productId: 2,
@@ -32,4 +33,8 @@ export class ProductListComponent {
       imageUrl: 'assets/images/hammer.png',
     },
   ];
+
+  toggleImage(): void {
+    this.showImage = !this.showImage;
+  }
 }
