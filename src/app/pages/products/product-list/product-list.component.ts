@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IProduct } from '../../../models/interfaces/product.interface';
+import { ConvertToSpacesPipe } from '../../../shared/pipes/ConvertToSpaces.pipe';
 
 @Component({
   selector: 'pm-product-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ConvertToSpacesPipe],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
