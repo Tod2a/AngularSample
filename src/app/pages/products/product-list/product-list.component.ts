@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IProduct } from '../../../models/interfaces/product.interface';
 
@@ -10,7 +10,7 @@ import { IProduct } from '../../../models/interfaces/product.interface';
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   pageTitle: string = 'Product List';  
   listfilter: string = 'cart';
   showImage: boolean = false;
@@ -37,6 +37,10 @@ export class ProductListComponent {
       imageUrl: 'assets/images/hammer.png',
     },
   ];
+
+  ngOnInit(): void {
+    console.log('OnInit there will be the call to the product API');
+  }
 
   toggleImage(): void {
     this.showImage = !this.showImage;
