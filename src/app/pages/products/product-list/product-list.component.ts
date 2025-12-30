@@ -13,9 +13,18 @@ import { ConvertToSpacesPipe } from '../../../shared/pipes/ConvertToSpaces.pipe'
 })
 export class ProductListComponent implements OnInit {
   pageTitle: string = 'Product List';  
-  listfilter: string = 'cart';
   showImage: boolean = false;
 
+  private _listFilter: string = '';
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredProducts = this.performFilter(this.listFilter);
+  } 
+
+  filteredProducts: IProduct[] = [];
   products: IProduct[] = [
     {
       productId: 2,
@@ -40,10 +49,15 @@ export class ProductListComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    console.log('OnInit there will be the call to the product API');
+    this.listFilter = 'cart';
   }
 
   toggleImage(): void {
     this.showImage = !this.showImage;
+  }
+
+  performFilter(filterBy: string) : IProduct[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product: IProduct) => product.productName.toLocaleLowerCase().includes(filterBy));
   }
 }
