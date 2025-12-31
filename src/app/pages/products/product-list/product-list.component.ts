@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IProduct } from '../../../models/interfaces/product.interface';
 import { ConvertToSpacesPipe } from '../../../shared/pipes/ConvertToSpaces.pipe';
 import { StarComponent } from '../../../shared/components/star/star.component';
 import { ProductService } from '../../../core/services/product.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'pm-product-list',
@@ -13,9 +14,15 @@ import { ProductService } from '../../../core/services/product.service';
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
   pageTitle: string = 'Product List';  
   showImage: boolean = false;
+
+  filteredProducts: IProduct[] = [];
+  products: IProduct[] = [];
+
+  errorMessage: string = '';
+  sub!: Subscription;
 
   private _listFilter: string = '';
   get listFilter(): string {
@@ -26,14 +33,20 @@ export class ProductListComponent implements OnInit {
     this.filteredProducts = this.performFilter(this.listFilter);
   } 
 
-  filteredProducts: IProduct[] = [];
-  products: IProduct[] = [];
-
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
-    this.filteredProducts = this.products;
+    this.sub = this.productService.getProducts().subscribe({
+      next: products => {
+        this.products = products;
+        this.filteredProducts = this.products;
+      },
+      error: err => this.errorMessage = err
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   toggleImage(): void {
