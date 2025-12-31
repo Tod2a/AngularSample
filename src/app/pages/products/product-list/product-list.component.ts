@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IProduct } from '../../../models/interfaces/product.interface';
 import { ConvertToSpacesPipe } from '../../../shared/pipes/ConvertToSpaces.pipe';
+import { StarComponent } from '../../../shared/components/star/star.component';
 
 @Component({
   selector: 'pm-product-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, ConvertToSpacesPipe],
+  imports: [CommonModule, FormsModule, ConvertToSpacesPipe, StarComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
