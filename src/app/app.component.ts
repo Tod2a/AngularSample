@@ -5,10 +5,8 @@ import { ProductListComponent } from "./pages/products/product-list/product-list
 @Component({
   selector: 'pm-root',
   standalone: true,
-  imports: [RouterOutlet, ProductListComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  pageTitle = 'AngularSample';
-}
+export class AppComponent { }
