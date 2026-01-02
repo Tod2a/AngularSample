@@ -1,11 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IProduct } from '../../../models/interfaces/product.interface';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product-detail.component.html',
-  styleUrl: './product-detail.component.css'
+  styleUrl: './product-detail.component.css',
 })
-export class ProductDetailComponent {
+export class ProductDetailComponent implements OnInit {
   pagesTitle: string = 'Product Detail';
+  product: IProduct | undefined;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.pagesTitle += `: ${id}`;
+    this.product = {
+      productId: 10,
+      productName: 'Video Game Controller',
+      productCode: 'GMG-0042',
+      releaseDate: 'October 15, 2020',
+      description: 'Standard two-button video game controller',
+      price: 35.95,
+      starRating: 4.6,
+      imageUrl: 'assets/images/xbox-controller.png',
+    };
+  }
 }

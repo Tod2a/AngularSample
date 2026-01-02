@@ -6,10 +6,11 @@ import { ConvertToSpacesPipe } from '../../../shared/pipes/ConvertToSpaces.pipe'
 import { StarComponent } from '../../../shared/components/star/star.component';
 import { ProductService } from '../../../core/services/product.service';
 import { Subscription } from 'rxjs';
+import { RouterLink } from "@angular/router";
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, ConvertToSpacesPipe, StarComponent],
+  imports: [CommonModule, FormsModule, ConvertToSpacesPipe, StarComponent, RouterLink],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
