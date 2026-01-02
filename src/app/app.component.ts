@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ProductListComponent } from "./pages/products/product-list/product-list.component";
+import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 
 @Component({
   selector: 'pm-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

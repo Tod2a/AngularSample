@@ -8,7 +8,6 @@ import { ProductService } from '../../../core/services/product.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'pm-product-list',
   standalone: true,
   imports: [CommonModule, FormsModule, ConvertToSpacesPipe, StarComponent],
   templateUrl: './product-list.component.html',
