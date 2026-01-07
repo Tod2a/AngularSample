@@ -4,7 +4,7 @@ export const demosRoutes: Routes = [
     {
         path: 'observable',
         loadChildren: () =>
-            import('./observable/observable.routes')
+            import('./observables/observable.routes')
                 .then(m => m.observableRoutes)
     },
     {
