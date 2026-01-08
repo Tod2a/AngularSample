@@ -1,40 +1,23 @@
 <nav class="navbar navbar-expand navbar-light bg-light mb-2">
     <a class="navbar-brand" routerLink="/home">{{ pageTitle }}</a>
     <ul class="nav nav-pills">
-        <li><a class="nav-link" routerLink="/home">Home</a></li>
-        <li><a class="nav-link" routerLink="/products">Product List</a></li>
-        <li class="nav-item dropdown">
+        <li><a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a class="nav-link" routerLink="/products" routerLinkActive="active">Product List</a></li>
+        <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">
+            <!-- lien fantôme pour Angular -->
+            <a routerLink="/demo/observable" class="d-none"></a>
+
             <button class="nav-link dropdown-toggle btn btn-link" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Observable
             </button>
 
             <ul class="dropdown-menu">
-                <li>
-                    <a class="dropdown-item" routerLink="/demo/observable/base">
-                        Base
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" routerLink="/demo/observable/map">
-                        Map
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" routerLink="/demo/observable/tap">
-                        Tap
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" routerLink="/demo/observable/filter">
-                        Filter
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" routerLink="/demo/observable/take">
-                        Take
-                    </a>
-                </li>
+                <li><a class="dropdown-item" routerLink="/demo/observable/base">Base</a></li>
+                <li><a class="dropdown-item" routerLink="/demo/observable/map">Map</a></li>
+                <li><a class="dropdown-item" routerLink="/demo/observable/tap">Tap</a></li>
+                <li><a class="dropdown-item" routerLink="/demo/observable/filter">Filter</a></li>
+                <li><a class="dropdown-item" routerLink="/demo/observable/take">Take</a></li>
             </ul>
         </li>
     </ul>

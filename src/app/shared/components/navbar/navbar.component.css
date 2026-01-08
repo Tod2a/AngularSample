@@ -1,0 +1,11 @@
+.nav-link.active {
+  color: #ffffff;
+  background-color: #3b82f6;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.nav-pills .nav-item.dropdown.active > .nav-link {
+  background-color: var(--bs-primary);
+  color: white;
+}
