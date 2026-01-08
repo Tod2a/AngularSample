@@ -9,17 +9,11 @@ import { UnauthorizedComponent } from './pages/errors/unauthorized/unauthorized.
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductListComponent },
-  {
-    path: 'products/:id',
-    canActivate: [productDetailGuard],
-    component: ProductDetailComponent,
-  },
-  {
-    path: 'demo',
-    // lazy loading, Angular does not import the "demo" bundle untill the user click on a demo route.
-    loadChildren: () =>
-      import('./pages/demos/demos.routes').then((m) => m.demosRoutes),
-  },
+  { path: 'products/:id', canActivate: [productDetailGuard], component: ProductDetailComponent },
+
+  // lazy loading, Angular does not import the "demo" bundle untill the user click on a demo route.
+  { path: 'demo', loadChildren: () => import('./pages/demos/demos.routes').then((m) => m.demosRoutes) },
+  
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '**', component: NotFoundComponent },
