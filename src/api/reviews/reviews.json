@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "productId": 10,
+        "userName": "jackharkness",
+        "title": "Works great",
+        "text": "I've beat every level faster with this controller"
+    },
+    {
+        "id": 2,
+        "productId": 5,
+        "userName": "thor364",
+        "title": "Didn't work as I expected",
+        "text": "I summon this hammer, and it does not heed my call"
+    }
+]
