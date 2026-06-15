@@ -16,5 +16,6 @@ export const routes: Routes = [
   
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'unauthorized', component: UnauthorizedComponent },
-  { path: '**', component: NotFoundComponent },
+  { path: 'notfound', component: NotFoundComponent },
+  { path: '**', redirectTo: 'notfound', pathMatch: 'full' },
 ];
